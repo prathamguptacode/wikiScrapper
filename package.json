@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/prathamguptacode/wikiScrapper#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "puppeteer": "^25.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
