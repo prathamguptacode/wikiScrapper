@@ -15,7 +15,7 @@ app.get("/wiki/:q", async (req: Request, res: Response) => {
       return res.status(400).json({ message: "one word only" })
     }
     const txt = await wikiScrapper(word)
-    return res.json({ message: txt })
+    return res.send(txt)
   }
   res.status(400).json({ message: "param q can only be string" })
 })

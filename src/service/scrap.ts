@@ -7,11 +7,15 @@ export async function wikiScrapper(q: string) {
   const page = await browser.newPage()
   await page.goto(url)
   const txt = await page.evaluate(() => {
-    const elm = document.querySelector("#mw-content-text p:nth-of-type(2)") as HTMLElement
-    if (elm == null) {
+    let message = ""
+    const elms = document.querySelectorAll("#mw-content-text p") as NodeListOf<HTMLElement>
+    if (elms.length == 0){
       return "NOT FOUND"
     }
-    return elm.innerText
+    elms.forEach((element) => {
+      message += element.innerText
+    });
+    return message
   })
   await browser.close()
   return txt
